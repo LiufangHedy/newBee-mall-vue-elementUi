@@ -126,6 +126,14 @@ const routes = [
     },
     component: () => import(/*webpackChunkName: "order"*/ "../views/Setting"),
   },
+  {
+    path: "/about",
+    name: "about",
+    meta: {
+      index: 2,
+    },
+    component: () => import(/*webpackChunkName: "order"*/ "../views/About"),
+  },
 ];
 const router = new VueRouter({
   // mode: "hash",

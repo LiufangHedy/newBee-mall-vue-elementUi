@@ -1,5 +1,5 @@
 # hedy-newbee-mall-vueele-app
-## 该项目是仿照 https://github.com/newbee-ltd/newbee-mall-vue-app 项目用ElementUI重写的。用的也是该项目的接口数据，所以接口方面的代码会保留原项目应有的开头注释
+## 该项目是完全按照https://github.com/newbee-ltd/newbee-mall-vue-app项目，利用ElementUI代替vant仿写的，接口数据方面的代码几乎完全一致，对雷同代码也保留了原项目的开头注释。
 ## Project setup
 ```
 npm install
