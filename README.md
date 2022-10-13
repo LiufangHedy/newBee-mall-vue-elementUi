@@ -1,5 +1,5 @@
 # hedy-newbee-mall-vueele-app
-
+## 该项目是仿照 https://github.com/newbee-ltd/newbee-mall-vue-app 项目用ElementUI重写的
 ## Project setup
 ```
 npm install
