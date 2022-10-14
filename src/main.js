@@ -62,3 +62,16 @@ new Vue({
 Vue.prototype.prefix = prefix;
 Vue.prototype.$message = Message;
 Vue.prototype.$md5 = md5;
+// 注册serviceworker，处理兼容性问题
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/service-worker.js")
+      .then(() => {
+        console.log("serviceWorker注册成功了");
+      })
+      .catch(() => {
+        console.log("serviceWorker注册失败了");
+      });
+  });
+}
