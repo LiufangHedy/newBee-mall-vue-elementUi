@@ -43,4 +43,10 @@ axios.interceptors.response.use((res) => {
   return res.data;
 });
 
+// 设置axios请求拦截器，实时获取token，防止用户手动清除浏览器token后axios请求头中还保留原来的token
+axios.interceptors.request.use(function (config) {
+  console.log("axios拦截器参数config：", config);
+  config.headers.token = localStorage.getItem("token") || "";
+  return config;
+});
 export default axios;
