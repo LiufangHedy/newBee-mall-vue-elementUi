@@ -45,7 +45,20 @@ import { setLocal } from "@/common/js/utils";
 export default {
   name: "LoginComponent",
   components: { SimpleHeader, Verify },
+  mounted() {
+    // 利用localStorage实现同源的多个页面的通信。如果用户打开了多个login标签页面，只要有一个标签页登录了就刷新页面
+    window.addEventListener("storage", this.storageMessage);
+  },
+  destroyed() {
+    window.removeEventListener("storage", this.storageMessage);
+  },
   methods: {
+    storageMessage(event) {
+      console.log("login页面监听localStorage的变动！", event);
+      if (event.key === "token" && event.newValue) {
+        window.location.href = "/";
+      }
+    },
     verifySuccess(obj) {
       this.verify = true;
       console.log("success: ", obj);

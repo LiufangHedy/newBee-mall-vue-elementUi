@@ -129,6 +129,16 @@ export default {
       this.isLogin = true;
     }
     window.addEventListener("scroll", this.pageScroll);
+    // 使用localStorage与同源的其他标签页通信, 主要是为了判断是否在其他标签页登录
+    // window.addEventListener("storage", this.storageMessage);
+    // 使用postMessage与不同域的窗口通信
+    // let _this = this;
+    // window.addEventListener("message", function (msg) {
+    //   console.log("NewBee接收到其他窗口发来的消息：", msg.data);
+    //   if (msg.origin === "http://localhost:63343") {
+    //     msg.source.postMessage(`给你发送消息： ${_this.hots}`, msg.origin);
+    //   }
+    // });
     const { data } = await getHome();
     this.swiperList = data.carousels;
     this.newGoodses = data.newGoodses;
@@ -149,7 +159,18 @@ export default {
       },
     ];
   },
+  destroyed() {
+    // window.removeEventListener("storage", this.storageMessage);
+  },
   methods: {
+    storageMessage(event) {
+      console.log("home页面监听到了localStorage！", localStorage, event);
+      // 判断是否登录
+      // if (getLocal("token")) {
+      //   console.log("already login");
+      //   window.location.href = "/";
+      // }
+    },
     pageScroll() {
       let scrollTop =
         window.pageYOffset ||
