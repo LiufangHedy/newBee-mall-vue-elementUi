@@ -36,9 +36,7 @@
         <el-button class="cart-button" round @click="addCart"
           >加入购物车</el-button
         >
-        <el-button class="cart-button" round @click="addCart"
-          >立即购买</el-button
-        >
+        <el-button class="cart-button" round @click="toBuy">立即购买</el-button>
       </div>
     </div>
   </div>
@@ -108,6 +106,12 @@ export default {
     },
     goCart() {
       this.$router.push("/cart");
+    },
+    toBuy() {
+      let _this = this;
+      this.addCart().finally(() => {
+        _this.goCart();
+      });
     },
     async addCart() {
       const { resultCode } = await addCart({

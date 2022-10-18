@@ -35,7 +35,10 @@
         <span class="fl-lf">商品总金额</span>
         <span class="fl-ri price">￥{{ total }}</span>
         <div class="clear-both width-box">
-          <el-button @click="createOrder" class="btn width-box mr-top" round
+          <el-button
+            @click="openPayTypePopup"
+            class="btn width-box mr-top"
+            round
             >生成订单</el-button
           >
         </div>
@@ -110,6 +113,9 @@ export default {
     goAddress() {
       this.$router.push("/address");
     },
+    openPayTypePopup() {
+      this.showPay = true;
+    },
     async createOrder() {
       console.log("生成订单");
       const params = {
@@ -120,25 +126,26 @@ export default {
       setLocal("cartItemIds", "");
       console.log("order numbers: ", data);
       this.orderNum = data;
-      this.showPay = true;
     },
     closePopup() {
       console.log("关掉啦");
       this.showPay = false;
     },
-    closePayType() {
+    async closePayType() {
       this.closePopup();
+      await this.createOrder();
       console.log("hidePayType");
-      this.$router.push("/order");
+      this.$router.replace("/order");
     },
     async payType(type) {
       this.closePopup();
+      await this.createOrder();
       console.log("pay type is", type);
       await payOrder({
         orderNo: this.orderNum,
         payType: type,
       });
-      this.$router.push("/order");
+      this.$router.replace("/order");
     },
   },
 };
