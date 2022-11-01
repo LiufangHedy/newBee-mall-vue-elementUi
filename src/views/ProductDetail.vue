@@ -223,4 +223,20 @@ export default {
 ::v-deep .el-button {
   margin-left: 0;
 }
+@media only screen and(min-width: 800px) {
+  .bottom {
+    width: 100%;
+    box-sizing: border-box;
+    height: 50px;
+    line-height: 30px;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 3px calc(50vw - 617px / 2);
+  }
+}
 </style>

@@ -25,7 +25,7 @@
         class="icon-item"
       >
         <img :src="item.imgUrl" />
-        <span>{{ item.name }}</span>
+        <span class="icon-name">{{ item.name }}</span>
       </div>
     </div>
     <div style="padding-bottom: 100px">
@@ -198,11 +198,33 @@ export default {
   justify-content: space-between;
   align-items: center;
   z-index: 999;
-
+  background-color: #ffffff;
   padding: 0 20px;
   font-size: 20px;
   &.active {
     background-color: #1baeae;
+  }
+}
+// 适应PC端大屏幕，当屏幕大于800px时，使网页呈现出800px宽度，即居中状态
+@media only screen and(min-width: 800px) {
+  .header {
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+    //媒体查询
+    padding: 0 calc(50vw - 400px);
+    font-size: 20px;
+    background-color: #ffffff;
+    &.active {
+      background-color: #1baeae;
+    }
   }
 }
 .search-area {
@@ -240,6 +262,7 @@ export default {
   color: #1baeae;
   background-color: #f7f7f7;
 }
+
 .icon-item {
   box-sizing: border-box;
   width: 20%;
@@ -251,6 +274,9 @@ export default {
     margin: 15px auto 10px;
   }
   text-align: center;
+}
+.icon-name {
+  font-size: 16px;
 }
 .products {
   display: flex;

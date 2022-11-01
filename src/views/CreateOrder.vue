@@ -140,6 +140,16 @@ export default {
     async payType(type) {
       this.closePopup();
       await this.createOrder();
+      // Promise的链式调用
+      // createOrder()
+      //   .then((res) => {
+      //     let { data } = res;
+      //     console.log(data);
+      //     return payOrder({ id: "hhh" });
+      //   })
+      //   .then((res) => {
+      //     console.log(res);
+      //   });
       console.log("pay type is", type);
       await payOrder({
         orderNo: this.orderNum,

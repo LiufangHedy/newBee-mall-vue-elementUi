@@ -21,7 +21,7 @@
       </div>
       <i class="el-icon-edit address-edit-icon" @click="editAddress(item)"></i>
     </div>
-    <div class="bottom">
+    <div class="fixed-bottom">
       <el-button class="bottom-button" round @click="addAddress">
         新增地址</el-button
       >
@@ -105,7 +105,7 @@ span + span {
   background-color: #fff;
   z-index: 999;
 }
-.bottom .bottom-button {
+.bottom-button {
   width: 100%;
   color: #ffffff;
   background-color: #1baeae;

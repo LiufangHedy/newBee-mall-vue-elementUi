@@ -18,7 +18,8 @@
           @click="goTo(item.link)"
         >
           <span>{{ item.name }}</span>
-          <i class="el-icon-arrow-right icon-right"></i>
+          <span> > </span>
+          <!--          <i class="el-icon-arrow-right icon-right"></i>-->
         </div>
       </div>
     </div>
@@ -110,6 +111,8 @@ export default {
   border-bottom: 1px solid rgb(230, 230, 230);
 }
 .icon-right {
+  width: 30px;
+  display: inline-block;
   margin-top: 15px;
 }
 </style>

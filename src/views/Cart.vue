@@ -255,6 +255,25 @@ export default {
     vertical-align: middle;
   }
 }
+@media only screen and(min-width: 800px) {
+  .total {
+    display: block;
+    width: 617px;
+    height: 50px;
+    //box-sizing: border-box;
+    margin-bottom: 48px;
+    //媒体查询
+    padding: 5px 20px;
+    position: fixed;
+    bottom: 0;
+    left: calc(50vw - 617px / 2);
+    z-index: 1000;
+    background-color: #ffffff;
+    ::v-deep .el-checkbox__input {
+      vertical-align: middle;
+    }
+  }
+}
 .all-check {
   height: 30px;
   display: flex;

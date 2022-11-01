@@ -140,4 +140,22 @@ export default {
 ::v-deep .el-tabs__active-bar {
   display: none;
 }
+@media only screen and(min-width: 800px) {
+  .header {
+    box-sizing: border-box;
+    z-index: 1000;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 0 calc(50vw - 617px / 2);
+    font-size: 20px;
+    border-bottom: 1px solid rgb(142, 142, 142);
+    background-color: #f9f9f9;
+  }
+}
 </style>

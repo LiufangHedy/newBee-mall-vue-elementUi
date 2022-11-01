@@ -111,4 +111,22 @@ export default {
 ::v-deep .el-dropdown-menu__item:not(.is-disabled):hover {
   color: #1baeae;
 }
+@media only screen and(min-width: 800px) {
+  .simple-header {
+    box-sizing: border-box;
+    height: 45px;
+    line-height: 25px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    z-index: 1000;
+    font-size: 14px;
+    padding: 10px calc(50vw - 617px / 2);
+    border-bottom: 1px solid rgb(215, 215, 215);
+  }
+}
 </style>

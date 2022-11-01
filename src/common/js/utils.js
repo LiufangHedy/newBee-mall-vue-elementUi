@@ -8,8 +8,10 @@
  */
 
 export function getQueryString(name) {
-  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-  var r = window.location.search.substr(1).match(reg);
+  var reg = new RegExp("(^|&|\\?)" + name + "=([^&]*)(&|$)");
+  // URL中当#出现在?前面时，会导致location.search为空。此时应该从location.hash中提取search
+  let search = window.location.search || window.location.hash;
+  var r = search.match(reg);
   if (r != null) {
     return unescape(r[2]);
   } else {

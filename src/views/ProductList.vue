@@ -69,6 +69,8 @@ export default {
     async load() {
       this.isLoad = false;
       const { categoryId } = this.$route.query;
+      console.log("categoryID: ", categoryId);
+      if (!categoryId && !this.keyword) return;
       const { data } = await search({
         pageNumber: this.page,
         goodsCategoryId: categoryId,
@@ -98,6 +100,8 @@ export default {
   box-sizing: border-box;
   width: 100%;
   position: fixed;
+  left: 0;
+  top: 0;
   height: 50px;
   display: flex;
   justify-content: space-between;
@@ -162,5 +166,21 @@ export default {
 }
 .product-price {
   color: #1baeae;
+}
+@media only screen and(min-width: 800px) {
+  .header {
+    box-sizing: border-box;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 calc(50vw - 617px / 2);
+    font-size: 16px;
+    z-index: 1000;
+  }
 }
 </style>
